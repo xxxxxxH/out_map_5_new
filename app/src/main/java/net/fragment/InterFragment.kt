@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.angcyo.dsladapter.DslAdapter
+import com.idanatz.oneadapter.OneAdapter
 import kotlinx.android.synthetic.main.fragment_inter.*
+import net.adapter.DataItem
 import net.adapter.Item
 import net.basicmodel.DetailsActivity
 import net.basicmodel.R
