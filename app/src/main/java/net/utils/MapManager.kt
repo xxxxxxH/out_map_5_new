@@ -35,8 +35,13 @@ object MapManager {
                     val location =
                         locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) as Location
                     if (location.latitude != 0.0 && location.longitude != 0.0) {
+                        val position = CameraPosition.Builder().target(LatLng(location.latitude, location.longitude))
+                            .zoom(15.5f)
+                            .bearing(0f)
+                            .tilt(25f)
+                            .build()
                         EventBus.getDefault()
-                            .post(MessageEvent("location", location.latitude, location.longitude))
+                            .post(MessageEvent("location", position))
                     } else {
                         EventBus.getDefault().post(MessageEvent("location", 33.9204, -117.9465))
                     }

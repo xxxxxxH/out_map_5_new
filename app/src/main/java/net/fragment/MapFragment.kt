@@ -7,8 +7,11 @@ import android.view.View
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesUtil
 import com.google.android.gms.location.places.ui.PlacePicker
+import com.google.android.gms.maps.CameraUpdate
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapsInitializer
+import com.google.android.gms.maps.model.CameraPosition
 import kotlinx.android.synthetic.main.fragment_map.*
 import net.basicmodel.R
 import net.event.MessageEvent
@@ -70,9 +73,8 @@ class MapFragment : BaseFragment() {
                 }
             }
             "location" -> {
-                map?.let {
-                    MapManager.setLocation(it, msg[1] as Double, msg[2] as Double)
-                }
+                val position = msg[1] as CameraPosition
+                map!!.animateCamera(CameraUpdateFactory.newCameraPosition(position), 1000, null)
             }
             "s" -> {
                 requireActivity().startActivityForResult(
