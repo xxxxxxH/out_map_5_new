@@ -15,6 +15,7 @@ object ResourceManager {
             if (!name.startsWith("map") && !name.startsWith("ic_")
                 && !name.startsWith("loca") && !name.startsWith("inter") && !name.startsWith("near")
                 && !name.startsWith("search") && !name.startsWith("street") && !name.startsWith("down")
+                && !name.startsWith("up") 
             ) {
                 val id = context.resources.getIdentifier(name, folderName, context.packageName)
                 val entity = ResourceEntity(name, id)
